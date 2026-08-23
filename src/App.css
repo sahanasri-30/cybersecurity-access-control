@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: #111827;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 7px 0 0;
+  color: #94a3b8;
+}
+
+.team {
+  background: #2563eb;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.container {
+  width: 86%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.welcome {
+  margin-bottom: 25px;
+}
+
+.welcome h2 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: #94a3b8;
+}
+
+.card,
+.result-card,
+.concepts {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 25px;
+}
+
+.card h3,
+.result-card h3,
+.concepts h3 {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 25px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+
+select {
+  width: 100%;
+  padding: 13px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: white;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.evaluation {
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.formula,
+.calculation {
+  margin-top: 15px;
+  padding: 15px;
+  background: #172033;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.access {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.granted {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.denied {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.concept {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+}
+
+.concept span {
+  font-size: 25px;
+  color: #60a5fa;
+}
+
+.concept h4 {
+  margin-bottom: 8px;
+}
+
+.concept p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #64748b;
+  border-top: 1px solid #334155;
+}
+
+@media (max-width: 800px) {
+  .form-grid,
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+.relation {
+  margin-top: 15px;
+  padding: 12px;
+  background: #172033;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.truth-table {
+  margin-top: 30px;
+}
+
+.truth-table h3 {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0f172a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #334155;
+}
+
+th {
+  background: #2563eb;
+  color: white;
+}
+
+.granted-text {
+  color: #6ee7b7;
+  font-weight: bold;
+}
+
+.denied-text {
+  color: #fca5a5;
+  font-weight: bold;
+}
+/* Access Activity Log */
+.logs {
+  margin-top: 30px;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 16px;
+}
+
+.logs h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.logs table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.logs th {
+  background: #2563eb;
+  color: white;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.logs td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logs tr:last-child td {
+  border-bottom: none;
+}
+
+.granted-text {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.denied-text {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.empty-log {
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px;
+}
