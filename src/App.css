@@ -294,3 +294,183 @@ th {
   color: #94a3b8;
   padding: 20px;
 }
+
+/* Capstone Review 2 — additional sections for Units IV and V */
+.advanced-units {
+  margin: 38px 0;
+}
+.unit-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 44px 0 20px;
+}
+.unit-heading h2 {
+  color: #f8fafc;
+  font-size: 27px;
+  margin: 0 0 6px;
+}
+.unit-heading p,
+.unit-description {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.unit-tag {
+  flex: 0 0 auto;
+  background: #1d4ed8;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+.unit-panel {
+  min-width: 0;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.unit-panel h3 {
+  margin: 0 0 12px;
+  color: #f8fafc;
+}
+.unit-description { margin-bottom: 18px; font-size: 14px; }
+.algebra-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+.operation-result {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 12px;
+}
+.operation-result span { color: #93c5fd; font-family: monospace; }
+.operation-result strong { color: #6ee7b7; font-size: 30px; }
+.operation-result small { color: #94a3b8; }
+.math-note {
+  margin-top: 16px;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+  background: #172033;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+.unit-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.math-table { margin: 16px 0; }
+.math-table th, .math-table td { padding: 11px 12px; }
+.unit-list { padding-left: 20px; color: #cbd5e1; line-height: 1.8; font-size: 14px; }
+.policy-map { display: grid; gap: 10px; margin-top: 16px; }
+.policy-map > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+}
+.policy-map span { color: #93c5fd; font-size: 13px; }
+.policy-map strong { color: #e2e8f0; font-family: monospace; font-size: 13px; }
+.graph-select { display: block; max-width: 320px; margin-bottom: 20px; }
+.access-graph {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(170px, 1fr);
+  gap: 54px;
+  min-height: 270px;
+  align-items: stretch;
+  padding: 10px 8px;
+}
+.graph-column { z-index: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 12px; }
+.graph-column-title { color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.graph-node {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  border-radius: 9px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-weight: 700;
+  font-size: 13px;
+}
+.role-node.selected { border-color: #60a5fa; background: #172554; box-shadow: 0 0 0 1px #60a5fa; }
+.resource-node.connected { border-color: #059669; }
+.resource-node.unconnected { opacity: .65; border-style: dashed; }
+.graph-node small { color: #94a3b8; font-weight: 400; font-size: 11px; line-height: 1.4; }
+.graph-lines { position: absolute; inset: 24px 0 24px; width: 100%; height: calc(100% - 48px); pointer-events: none; }
+.graph-lines line { stroke-width: 1.6; }
+.edge-active { stroke: #60a5fa; opacity: .9; }
+.edge-muted { stroke: #475569; opacity: .35; }
+.graph-caption { margin: 14px 0 0; color: #94a3b8; font-size: 12px; line-height: 1.5; }
+.matrix-selected th, .matrix-selected td { background: #172554; }
+.concept-definition {
+  background: #0f172a;
+  border-left: 3px solid #3b82f6;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 12px;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.concept-definition strong { color: #93c5fd; }
+@media (max-width: 800px) {
+  .unit-two-column, .algebra-controls { grid-template-columns: 1fr; }
+  .unit-heading { gap: 10px; }
+  .unit-heading h2 { font-size: 23px; }
+  .unit-panel { padding: 18px; }
+  .access-graph { gap: 22px; grid-template-columns: minmax(100px, .9fr) minmax(130px, 1fr); }
+  .graph-node { padding: 9px; font-size: 12px; }
+}
+
+.isomorphism-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.isomorphism-demo > div {
+  min-width: 0;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px;
+}
+.demo-label {
+  display: block;
+  color: #93c5fd;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 800;
+}
+.isomorphism-demo svg { width: 100%; height: auto; display: block; }
+.isomorphism-demo svg line { stroke: #60a5fa; stroke-width: 2.5; }
+.isomorphism-demo svg circle { fill: #1d4ed8; stroke: #93c5fd; stroke-width: 1.5; }
+.isomorphism-demo svg text {
+  fill: #ffffff;
+  font-size: 11px;
+  text-anchor: middle;
+  font-weight: 700;
+}
+
+.matrix-scroll { width: 100%; overflow-x: auto; }
+.compact-matrix { min-width: 620px; table-layout: fixed; }
+.compact-matrix th, .compact-matrix td { padding: 9px 7px; font-size: 12px; white-space: normal; overflow-wrap: anywhere; }
