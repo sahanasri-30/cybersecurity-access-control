@@ -7,6 +7,10 @@ function App() {
   const [permission, setPermission] = useState("Read");
   const [result, setResult] = useState(null);
   const [logs, setLogs] = useState([]);
+  const [algebraA, setAlgebraA] = useState("0");
+  const [algebraB, setAlgebraB] = useState("1");
+  const [graphRole, setGraphRole] = useState("Admin");
+
 
   const permissions = {
     Admin: {
@@ -281,6 +285,142 @@ function App() {
             </div>
 
           </section>
+
+          {/* Added for Capstone Review 2 — Units IV and V. Existing Units I–III remain above unchanged. */}
+          <section className="advanced-units" aria-label="Discrete Mathematics Units IV and V">
+            <div className="unit-heading">
+              <span className="unit-tag">UNIT IV</span>
+              <div>
+                <h2>Algebraic System</h2>
+                <p>Explore algebraic structures and connect them to permission-policy transformations.</p>
+              </div>
+            </div>
+
+            <div className="unit-panel">
+              <h3>1. Binary Operation Explorer</h3>
+              <p className="unit-description">Select two values from the Boolean set B = {0, 1}. The operation shown is XOR (exclusive OR), a binary operation that returns 1 when the inputs differ.</p>
+              <div className="algebra-controls">
+                <label>First value
+                  <select value={algebraA} onChange={(e) => setAlgebraA(e.target.value)}>
+                    <option value="0">0 (FALSE)</option>
+                    <option value="1">1 (TRUE)</option>
+                  </select>
+                </label>
+                <label>Second value
+                  <select value={algebraB} onChange={(e) => setAlgebraB(e.target.value)}>
+                    <option value="0">0 (FALSE)</option>
+                    <option value="1">1 (TRUE)</option>
+                  </select>
+                </label>
+                <div className="operation-result">
+                  <span>{algebraA} ⊕ {algebraB}</span>
+                  <strong>{Number(algebraA) ^ Number(algebraB)}</strong>
+                  <small>{(Number(algebraA) ^ Number(algebraB)) ? "TRUE" : "FALSE"}</small>
+                </div>
+              </div>
+              <div className="math-note"><strong>Note:</strong> XOR is used here to demonstrate a binary operation on { "{0, 1}" }. It is an illustrative algebra example, not a replacement for the existing access rule A ∧ B.</div>
+            </div>
+
+            <div className="unit-two-column">
+              <div className="unit-panel">
+                <h3>2. Group Properties — Concept Check</h3>
+                <p className="unit-description">The set { "{0, 1}" } with XOR forms a group. Use the table to observe the operation.</p>
+                <table className="math-table">
+                  <thead><tr><th>⊕</th><th>0</th><th>1</th></tr></thead>
+                  <tbody><tr><th>0</th><td>0</td><td>1</td></tr><tr><th>1</th><td>1</td><td>0</td></tr></tbody>
+                </table>
+                <ul className="unit-list">
+                  <li><strong>Closure:</strong> every result belongs to { "{0, 1}" }.</li>
+                  <li><strong>Identity:</strong> 0, because a ⊕ 0 = a.</li>
+                  <li><strong>Inverse:</strong> each element is its own inverse.</li>
+                  <li><strong>Associativity:</strong> XOR is associative.</li>
+                </ul>
+              </div>
+              <div className="unit-panel">
+                <h3>3. Permission Policy as a Mapping</h3>
+                <p className="unit-description">A policy transformation can map each role-resource pair to an allowed-permission set. Compare the existing rules without changing them.</p>
+                <div className="policy-map">
+                  <div><span>Admin + Finance</span><strong>{ "{Read, Write, Delete}" }</strong></div>
+                  <div><span>Faculty + Examination</span><strong>{ "{Read, Write}" }</strong></div>
+                  <div><span>Student + Library</span><strong>{ "{Read}" }</strong></div>
+                </div>
+                <p className="math-note">These examples illustrate a mapping between entities and permission sets. They are not claimed to be a group homomorphism; such a claim would require defined operations that preserve the algebraic structure.</p>
+              </div>
+            </div>
+
+            <div className="unit-heading unit-heading-v">
+              <span className="unit-tag">UNIT V</span>
+              <div>
+                <h2>Graph Theory</h2>
+                <p>Visualize how roles connect to resources and which permissions are associated with them.</p>
+              </div>
+            </div>
+
+            <div className="unit-panel">
+              <h3>4. Access Relationship Graph</h3>
+              <p className="unit-description">This graph is derived from the project's existing permission data. Choose a role to highlight its accessible resources and inspect the adjacency matrix below.</p>
+              <label className="graph-select">Highlight role
+                <select value={graphRole} onChange={(e) => setGraphRole(e.target.value)}>
+                  <option>Admin</option><option>Faculty</option><option>Student</option>
+                </select>
+              </label>
+              <div className="access-graph" role="img" aria-label={`Bipartite graph of ${graphRole} role connections to resources`}>
+                <div className="graph-column">
+                  <span className="graph-column-title">ROLES</span>
+                  {["Admin", "Faculty", "Student"].map((role) => (
+                    <div key={role} className={`graph-node role-node ${graphRole === role ? "selected" : ""}`}>{role}</div>
+                  ))}
+                </div>
+                <svg className="graph-lines" viewBox="0 0 400 230" preserveAspectRatio="none" aria-hidden="true">
+                  {[
+                    {role:"Admin", y:52, resource:"Examination", ry:52},
+                    {role:"Admin", y:52, resource:"Library", ry:115},
+                    {role:"Admin", y:52, resource:"Finance", ry:178},
+                    {role:"Faculty", y:115, resource:"Examination", ry:52},
+                    {role:"Faculty", y:115, resource:"Library", ry:115},
+                    {role:"Student", y:178, resource:"Library", ry:115},
+                  ].map((edge, i) => (
+                    <line key={i} x1="10" y1={edge.y} x2="390" y2={edge.ry}
+                      className={edge.role === graphRole ? "edge-active" : "edge-muted"} />
+                  ))}
+                </svg>
+                <div className="graph-column">
+                  <span className="graph-column-title">RESOURCES</span>
+                  {["Examination", "Library", "Finance"].map((res) => {
+                    const permitted = permissions[graphRole][res].length > 0;
+                    return <div key={res} className={`graph-node resource-node ${permitted ? "connected" : "unconnected"}`}>
+                      {res}<small>{permitted ? permissions[graphRole][res].join(" · ") : "No permission"}</small>
+                    </div>;
+                  })}
+                </div>
+              </div>
+              <p className="graph-caption">Edges represent role-to-resource relationships with at least one permission under the current policy. Permission details are listed inside each resource node.</p>
+            </div>
+
+            <div className="unit-two-column">
+              <div className="unit-panel">
+                <h3>5. Adjacency Matrix</h3>
+                <p className="unit-description">A value of 1 means the selected role has at least one permission for that resource; 0 means no permission is assigned.</p>
+                <table className="math-table">
+                  <thead><tr><th>Role</th><th>Examination</th><th>Library</th><th>Finance</th></tr></thead>
+                  <tbody>{["Admin","Faculty","Student"].map((role) => <tr key={role} className={graphRole === role ? "matrix-selected" : ""}>
+                    <th>{role}</th>
+                    {["Examination","Library","Finance"].map((res) => <td key={res}>{permissions[role][res].length > 0 ? "1" : "0"}</td>)}
+                  </tr>)}</tbody>
+                </table>
+                <p className="math-note">This is a role-resource incidence/adjacency-style matrix derived from the current permission relation.</p>
+              </div>
+              <div className="unit-panel">
+                <h3>6. Graph Theory Concepts</h3>
+                <div className="concept-definition"><strong>Vertices:</strong> roles and resources represented as nodes.</div>
+                <div className="concept-definition"><strong>Edges:</strong> a role-resource link exists when one or more permissions are assigned.</div>
+                <div className="concept-definition"><strong>Connectivity:</strong> helps identify which resources a role can reach in this model.</div>
+                <div className="concept-definition"><strong>Tree hierarchy:</strong> a possible extension for nested roles; the current graph is not necessarily a tree.</div>
+                <div className="concept-definition"><strong>Euler / Hamilton paths:</strong> graph traversal concepts from the syllabus; they are taught here conceptually and are not used to grant permissions.</div>
+              </div>
+            </div>
+          </section>
+
           <section className="logs">
 
             <h3>📜 Access Activity Log</h3>
