@@ -298,7 +298,7 @@ function App() {
 
             <div className="unit-panel">
               <h3>1. Binary Operation Explorer</h3>
-              <p className="unit-description">Select two values from the Boolean set B = {0, 1}. The operation shown is XOR (exclusive OR), a binary operation that returns 1 when the inputs differ.</p>
+              <p className="unit-description">Select two values from the Boolean set B = {"{0, 1}"}. The operation shown is XOR (exclusive OR), a binary operation that returns 1 when the inputs differ.</p>
               <div className="algebra-controls">
                 <label>First value
                   <select value={algebraA} onChange={(e) => setAlgebraA(e.target.value)}>
@@ -402,7 +402,7 @@ function App() {
             </div>
 
             <div className="unit-panel">
-              <h3>4. Access Relationship Graph</h3>
+              <h3>1. Access Relationship Graph</h3>
               <p className="unit-description">This graph is derived from the project's existing permission data. Choose a role to highlight its accessible resources and inspect the adjacency matrix below.</p>
               <label className="graph-select">Highlight role
                 <select value={graphRole} onChange={(e) => setGraphRole(e.target.value)}>
@@ -443,7 +443,7 @@ function App() {
             </div>
 
             <div className="unit-panel">
-              <h3>5. Graph Adjacency Matrix (6 × 6)</h3>
+              <h3>2. Graph Adjacency Matrix (6 × 6)</h3>
               <p className="unit-description">The adjacency matrix is square because each row and column represents one graph vertex. A 1 shows an edge between the row vertex and column vertex; 0 means no edge. The graph is undirected, so the matrix is symmetric.</p>
               <div className="matrix-scroll">
                 <table className="math-table compact-matrix">
@@ -470,7 +470,7 @@ function App() {
 
             <div className="unit-two-column">
               <div className="unit-panel">
-                <h3>6. Role–Resource Incidence Matrix</h3>
+                <h3>3. Role–Resource Incidence Matrix</h3>
                 <p className="unit-description">A value of 1 means the selected role has at least one permission for that resource; 0 means no permission is assigned.</p>
                 <table className="math-table">
                   <thead><tr><th>Role</th><th>Examination</th><th>Library</th><th>Finance</th></tr></thead>
@@ -482,7 +482,7 @@ function App() {
                 <p className="math-note">This rectangular incidence matrix shows role-resource links derived from the current permission relation.</p>
               </div>
               <div className="unit-panel">
-                <h3>7. Graph Theory Concepts</h3>
+                <h3>4. Graph Theory Concepts</h3>
                 <div className="concept-definition"><strong>Vertices:</strong> roles and resources represented as nodes.</div>
                 <div className="concept-definition"><strong>Edges:</strong> a role-resource link exists when one or more permissions are assigned.</div>
                 <div className="concept-definition"><strong>Connectivity:</strong> helps identify which resources a role can reach in this model.</div>
@@ -492,7 +492,7 @@ function App() {
             </div>
             <div className="unit-two-column">
               <div className="unit-panel">
-                <h3>8. Special Types of Graphs</h3>
+                <h3>5. Special Types of Graphs</h3>
                 <div className="concept-definition"><strong>Simple graph:</strong> no self-loops or multiple edges between the same pair of vertices.</div>
                 <div className="concept-definition"><strong>Path graph:</strong> vertices are joined in a sequence.</div>
                 <div className="concept-definition"><strong>Cycle graph:</strong> a path that closes back to its starting vertex.</div>
@@ -501,7 +501,7 @@ function App() {
                 <div className="concept-definition"><strong>Tree:</strong> a connected graph with no cycles. A hierarchy could be modeled as a tree when those conditions hold.</div>
               </div>
               <div className="unit-panel">
-                <h3>9. Graph Isomorphism &amp; Paths</h3>
+                <h3>6. Graph Isomorphism &amp; Paths</h3>
                 <p className="unit-description">Two graphs are isomorphic when a one-to-one relabeling of their vertices preserves which vertices are connected.</p>
                 <div className="isomorphism-demo">
                   <div>
