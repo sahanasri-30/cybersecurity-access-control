@@ -464,6 +464,47 @@ function App() {
                 <div className="concept-definition"><strong>Euler / Hamilton paths:</strong> graph traversal concepts from the syllabus; they are taught here conceptually and are not used to grant permissions.</div>
               </div>
             </div>
+            <div className="unit-two-column">
+              <div className="unit-panel">
+                <h3>7. Special Types of Graphs</h3>
+                <div className="concept-definition"><strong>Simple graph:</strong> no self-loops or multiple edges between the same pair of vertices.</div>
+                <div className="concept-definition"><strong>Path graph:</strong> vertices are joined in a sequence.</div>
+                <div className="concept-definition"><strong>Cycle graph:</strong> a path that closes back to its starting vertex.</div>
+                <div className="concept-definition"><strong>Complete graph:</strong> every pair of distinct vertices is connected by an edge.</div>
+                <div className="concept-definition"><strong>Bipartite graph:</strong> vertices are separated into two sets, with edges only between the sets. The role-to-resource model shown here is bipartite.</div>
+                <div className="concept-definition"><strong>Tree:</strong> a connected graph with no cycles. A hierarchy could be modeled as a tree when those conditions hold.</div>
+              </div>
+              <div className="unit-panel">
+                <h3>8. Graph Isomorphism &amp; Paths</h3>
+                <p className="unit-description">Two graphs are isomorphic when a one-to-one relabeling of their vertices preserves which vertices are connected.</p>
+                <div className="isomorphism-demo">
+                  <div>
+                    <span className="demo-label">Graph A</span>
+                    <svg viewBox="0 0 160 110" role="img" aria-label="Triangle graph with vertices A B and C">
+                      <line x1="80" y1="18" x2="28" y2="88" />
+                      <line x1="80" y1="18" x2="132" y2="88" />
+                      <line x1="28" y1="88" x2="132" y2="88" />
+                      <circle cx="80" cy="18" r="13" /><circle cx="28" cy="88" r="13" /><circle cx="132" cy="88" r="13" />
+                      <text x="80" y="22">A</text><text x="28" y="92">B</text><text x="132" y="92">C</text>
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="demo-label">Graph B</span>
+                    <svg viewBox="0 0 160 110" role="img" aria-label="Same triangle graph with vertices X Y and Z">
+                      <line x1="80" y1="18" x2="28" y2="88" />
+                      <line x1="80" y1="18" x2="132" y2="88" />
+                      <line x1="28" y1="88" x2="132" y2="88" />
+                      <circle cx="80" cy="18" r="13" /><circle cx="28" cy="88" r="13" /><circle cx="132" cy="88" r="13" />
+                      <text x="80" y="22">X</text><text x="28" y="92">Y</text><text x="132" y="92">Z</text>
+                    </svg>
+                  </div>
+                </div>
+                <p className="math-note">These triangles are isomorphic: the labels differ, but their adjacency structure is the same.</p>
+                <div className="concept-definition"><strong>Euler path:</strong> traverses every edge exactly once.</div>
+                <div className="concept-definition"><strong>Hamilton path:</strong> visits every vertex exactly once.</div>
+                <div className="concept-definition"><strong>Connectivity:</strong> a graph is connected if a path exists between every pair of vertices.</div>
+              </div>
+            </div>
           </section>
 
           <section className="logs">
