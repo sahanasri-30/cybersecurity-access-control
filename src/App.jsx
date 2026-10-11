@@ -348,6 +348,51 @@ function App() {
               </div>
             </div>
 
+            <div className="unit-two-column">
+              <div className="unit-panel">
+                <h3>4. Subgroups &amp; Lagrange's Theorem</h3>
+                <p className="unit-description">For the group G = ({ "{0, 1}" }, ⊕), where ⊕ is XOR:</p>
+                <div className="policy-map">
+                  <div><span>Subgroup H₁</span><strong>{ "{0}" } (identity-only subgroup)</strong></div>
+                  <div><span>Subgroup H₂</span><strong>{ "{0, 1}" } (the entire group)</strong></div>
+                </div>
+                <p className="unit-description">Lagrange's theorem says the order of any subgroup of a finite group divides the order of the group.</p>
+                <table className="math-table">
+                  <thead><tr><th>Group / subgroup</th><th>Order</th><th>Divides |G| = 2?</th></tr></thead>
+                  <tbody><tr><td>G = { "{0, 1}" }</td><td>2</td><td>Yes</td></tr><tr><td>H₁ = { "{0}" }</td><td>1</td><td>Yes (1 divides 2)</td></tr><tr><td>H₂ = G</td><td>2</td><td>Yes (2 divides 2)</td></tr></tbody>
+                </table>
+              </div>
+              <div className="unit-panel">
+                <h3>5. Homomorphism</h3>
+                <p className="unit-description">A homomorphism preserves the operation. The identity mapping f(x) = x on the XOR group is a valid example.</p>
+                <div className="formula">f(a ⊕ b) = f(a) ⊕ f(b)</div>
+                <div className="operation-result">
+                  <span>f({algebraA} ⊕ {algebraB})</span>
+                  <strong>{Number(algebraA) ^ Number(algebraB)}</strong>
+                  <small>Both sides are equal</small>
+                </div>
+                <p className="math-note">The permission mapping shown earlier is a relation, not automatically a homomorphism. A homomorphism must preserve explicitly defined operations.</p>
+              </div>
+            </div>
+
+            <div className="unit-panel">
+              <h3>6. Vector Space, Linear Independence, Basis &amp; Dimension</h3>
+              <p className="unit-description">For a mathematical illustration, encode each role as a vector in R³ ordered by (Examination, Library, Finance). A 1 means the role has at least one permission for that resource.</p>
+              <table className="math-table">
+                <thead><tr><th>Role vector</th><th>Examination</th><th>Library</th><th>Finance</th></tr></thead>
+                <tbody>
+                  <tr><th>Admin v₁</th><td>1</td><td>1</td><td>1</td></tr>
+                  <tr><th>Faculty v₂</th><td>1</td><td>1</td><td>0</td></tr>
+                  <tr><th>Student v₃</th><td>0</td><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+              <div className="unit-two-column">
+                <div className="concept-definition"><strong>Linear independence:</strong> these three vectors are linearly independent (the matrix with these rows has determinant 1, which is non-zero).</div>
+                <div className="concept-definition"><strong>Basis &amp; dimension:</strong> the three independent vectors span R³, so they form a basis of R³ and its dimension is 3.</div>
+              </div>
+              <p className="math-note"><strong>Linear dependence example:</strong> v₄ = v₁ + v₂ = (2, 2, 1) is a linear combination of existing vectors; therefore the set { "{v₁, v₂, v₄}" } is linearly dependent. This vector model is for mathematical analysis only and does not alter actual permissions.</p>
+            </div>
+
             <div className="unit-heading unit-heading-v">
               <span className="unit-tag">UNIT V</span>
               <div>
