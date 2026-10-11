@@ -470,3 +470,7 @@ th {
   text-anchor: middle;
   font-weight: 700;
 }
+
+.matrix-scroll { width: 100%; overflow-x: auto; }
+.compact-matrix { min-width: 620px; table-layout: fixed; }
+.compact-matrix th, .compact-matrix td { padding: 9px 7px; font-size: 12px; white-space: normal; overflow-wrap: anywhere; }
