@@ -442,9 +442,35 @@ function App() {
               <p className="graph-caption">Edges represent role-to-resource relationships with at least one permission under the current policy. Permission details are listed inside each resource node.</p>
             </div>
 
+            <div className="unit-panel">
+              <h3>5. Graph Adjacency Matrix (6 × 6)</h3>
+              <p className="unit-description">The adjacency matrix is square because each row and column represents one graph vertex. A 1 shows an edge between the row vertex and column vertex; 0 means no edge. The graph is undirected, so the matrix is symmetric.</p>
+              <div className="matrix-scroll">
+                <table className="math-table compact-matrix">
+                  <thead><tr><th>Vertex</th>{["Admin","Faculty","Student","Examination","Library","Finance"].map((node) => <th key={node}>{node}</th>)}</tr></thead>
+                  <tbody>
+                    {["Admin","Faculty","Student","Examination","Library","Finance"].map((row) => (
+                      <tr key={row} className={row === graphRole ? "matrix-selected" : ""}>
+                        <th>{row}</th>
+                        {["Admin","Faculty","Student","Examination","Library","Finance"].map((col) => {
+                          const rowIsRole = ["Admin","Faculty","Student"].includes(row);
+                          const colIsRole = ["Admin","Faculty","Student"].includes(col);
+                          const adjacent = rowIsRole !== colIsRole && (
+                            rowIsRole ? permissions[row][col].length > 0 : permissions[col][row].length > 0
+                          );
+                          return <td key={col}>{adjacent ? "1" : "0"}</td>;
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="math-note">Vertex order: Admin, Faculty, Student, Examination, Library, Finance. This matrix represents the same role-resource graph displayed above.</p>
+            </div>
+
             <div className="unit-two-column">
               <div className="unit-panel">
-                <h3>5. Adjacency Matrix</h3>
+                <h3>6. Role–Resource Incidence Matrix</h3>
                 <p className="unit-description">A value of 1 means the selected role has at least one permission for that resource; 0 means no permission is assigned.</p>
                 <table className="math-table">
                   <thead><tr><th>Role</th><th>Examination</th><th>Library</th><th>Finance</th></tr></thead>
@@ -453,10 +479,10 @@ function App() {
                     {["Examination","Library","Finance"].map((res) => <td key={res}>{permissions[role][res].length > 0 ? "1" : "0"}</td>)}
                   </tr>)}</tbody>
                 </table>
-                <p className="math-note">This is a role-resource incidence/adjacency-style matrix derived from the current permission relation.</p>
+                <p className="math-note">This rectangular incidence matrix shows role-resource links derived from the current permission relation.</p>
               </div>
               <div className="unit-panel">
-                <h3>6. Graph Theory Concepts</h3>
+                <h3>7. Graph Theory Concepts</h3>
                 <div className="concept-definition"><strong>Vertices:</strong> roles and resources represented as nodes.</div>
                 <div className="concept-definition"><strong>Edges:</strong> a role-resource link exists when one or more permissions are assigned.</div>
                 <div className="concept-definition"><strong>Connectivity:</strong> helps identify which resources a role can reach in this model.</div>
@@ -466,7 +492,7 @@ function App() {
             </div>
             <div className="unit-two-column">
               <div className="unit-panel">
-                <h3>7. Special Types of Graphs</h3>
+                <h3>8. Special Types of Graphs</h3>
                 <div className="concept-definition"><strong>Simple graph:</strong> no self-loops or multiple edges between the same pair of vertices.</div>
                 <div className="concept-definition"><strong>Path graph:</strong> vertices are joined in a sequence.</div>
                 <div className="concept-definition"><strong>Cycle graph:</strong> a path that closes back to its starting vertex.</div>
@@ -475,7 +501,7 @@ function App() {
                 <div className="concept-definition"><strong>Tree:</strong> a connected graph with no cycles. A hierarchy could be modeled as a tree when those conditions hold.</div>
               </div>
               <div className="unit-panel">
-                <h3>8. Graph Isomorphism &amp; Paths</h3>
+                <h3>9. Graph Isomorphism &amp; Paths</h3>
                 <p className="unit-description">Two graphs are isomorphic when a one-to-one relabeling of their vertices preserves which vertices are connected.</p>
                 <div className="isomorphism-demo">
                   <div>
